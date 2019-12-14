@@ -16,6 +16,14 @@ setup(
     install_requires=["scikit-learn"],
     extras_require={
         "dev": ["black", "jupyter", "pylama", "rope"],
-        "tune": ["ray", "requests", "pandas", "psutil"],
+        "tune": [
+            "ray",
+            "requests",
+            "pandas",
+            "psutil",
+            "hyperopt",
+            "tensorflow",
+            "setuptools>=41.0.0",
+        ],
     },
 )
