@@ -1,33 +1,29 @@
 #!/usr/bin/env python
 # %%
 from ray import tune
-from sklearn.datasets import make_classification
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import roc_auc_score
-from sklearn.model_selection import cross_val_predict
+
+from tune_demo.train import get_iris_data, rf_cv
 
 
 # %%
-def train_rf(config):
-    X, y = make_classification(
-        n_samples=1000,
-        n_features=4,
-        n_informative=2,
-        n_redundant=0,
-        random_state=0,
-        shuffle=False,
-    )
-    for i in range(6):
-        clf = RandomForestClassifier(max_depth=config["max_depth"], random_state=0)
-        y_pred = cross_val_predict(clf, X, y, cv=5)
-        auc = roc_auc_score(y_true=y, y_score=y_pred)
-        tune.track.log(auc=auc)
+def eval_rf(config):
+    X, y = get_iris_data()
+    for i in range(3):
+        acc = rf_cv(config, X, y)
+        tune.track.log(acc=acc)
 
 
 # %%
-analysis = tune.run(train_rf, config={"max_depth": tune.grid_search([1, 4, 20])})
+analysis = tune.run(
+    eval_rf,
+    config={
+        "max_depth": tune.grid_search([1, 4, 20]),
+        "n_estimators": tune.grid_search([10, 100, 1000]),
+    },
+)
 
-print("Best config: ", analysis.get_best_config(metric="auc"))
+print("Best config: ", analysis.get_best_config(metric="acc"))
+# config = {'max_depth': 4, 'n_estimators': 1000}
 
 analysis.fetch_trial_dataframes()
 
