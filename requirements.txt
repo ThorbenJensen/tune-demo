@@ -1,2 +1,2 @@
  # installs dependencies from ./setup.py
--e ".[dev,pi]"
+-e ".[dev,tune]"

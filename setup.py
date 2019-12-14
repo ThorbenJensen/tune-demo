@@ -13,6 +13,9 @@ setup(
     packages=find_packages(),
     scripts=glob("bin/*"),
     # dependencies
-    install_requires=["ray", "scikit-learn"],
-    extras_require={"dev": ["black", "jupyter", "pylama", "rope"]},
+    install_requires=["scikit-learn"],
+    extras_require={
+        "dev": ["black", "jupyter", "pylama", "rope"],
+        "tune": ["ray", "requests", "pandas", "psutil"],
+    },
 )
