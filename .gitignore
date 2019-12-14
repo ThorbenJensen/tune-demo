@@ -2,4 +2,5 @@
 .vscode
 
 # python
+env37/
 *.egg-info
