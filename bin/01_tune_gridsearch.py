@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Example for simple grid search
+# Example for simple grid search.
 # See: https://towardsdatascience.com/fast-hyperparameter-tuning-at-scale-d428223b081c
 
 # %%

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-# Example for ASHA scheduler Early, random search with stopping less promising runs
+# Random sampling with early stopping.
+# Example for ASHA scheduler, random search with stopping less promising runs
 # See: https://ray.readthedocs.io/en/latest/tune-tutorial.html#early-stopping-with-asha
 
 # %%
