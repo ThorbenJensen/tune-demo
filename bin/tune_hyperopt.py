@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# Sequential model-based hyperparameter search with Tree-Structured Parzen Estimator
+# See: https://towardsdatascience.com/fast-hyperparameter-tuning-at-scale-d428223b081c
+
 # %%
 from hyperopt import hp
 from ray import tune
