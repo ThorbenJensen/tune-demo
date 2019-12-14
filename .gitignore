@@ -4,3 +4,4 @@
 # python
 env37/
 *.egg-info
+*.cpython-37.pyc
