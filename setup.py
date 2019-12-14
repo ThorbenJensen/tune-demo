@@ -22,6 +22,7 @@ setup(
             "pandas",
             "psutil",
             "hyperopt",
+            "tabulate",
             "tensorflow",
             "setuptools>=41.0.0",
         ],
